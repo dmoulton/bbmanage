@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  division_id: 1
+  name: MyString
+  coach_id: 1
+  wins: 1
+  losses: 1
+  notes: MyText
+
+two:
+  division_id: 1
+  name: MyString
+  coach_id: 1
+  wins: 1
+  losses: 1
+  notes: MyText

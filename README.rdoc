@@ -1,3 +1,5 @@
 == Baseball Manager
 
-This is a small app created to demonstrate the differences between Rails Admin and Active Admin
+This is a small app created to demonstrate the differences between Rails Admin and Active Admin.
+
+Much of it is inspired by the Rails Admin demo app.
