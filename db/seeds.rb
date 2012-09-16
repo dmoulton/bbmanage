@@ -22,10 +22,42 @@ leagues.each do |l|
   l.divisions.create(:name=>'North')
   l.divisions.create(:name=>'South')
 end
-1
+
+team_names = ["Aardvarks",
+              "Ants",
+              "Cave Men",
+              "Broncs", 
+              "Cougars", 
+              "Utes", 
+              "Miners", 
+              "Bees",
+              "Wildcats",
+              "Sharks",
+              "Barracudas",
+              "Marshmallows",
+              "Panthers",
+              "Bulldogs",
+              "Trojans",
+              "Galaxy",
+              "Manatees", 
+              "Marmot", 
+              "Marsupials",
+              "Meerkats", 
+              "Mink",
+              "Muskoxen", 
+              "Ocelots", 
+              "Octopus", 
+              "Opossum", 
+              "Orangutan", 
+              "Orca", 
+              "Osprey", 
+              "Ostrich", 
+              "Otters", 
+              "Owls" ]
+
 Division.all.each do |d|
-  for i in 1..10
-    d.teams.create(:name=>Faker::Name.first_name)
+  for i in 1..5
+    d.teams.create(:name=>team_names.shift)
   end
 end
 
