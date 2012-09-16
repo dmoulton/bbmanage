@@ -3,9 +3,9 @@ class CreateGames < ActiveRecord::Migration
     create_table :games do |t|
       t.integer :team1_id
       t.integer :team2_id
-      t.integer :winner_id
-      t.integer :winning_score
-      t.integer :losing_score
+      t.integer :team1_score
+      t.integer :team2_score
+      t.integer :innings, :default=>8
       t.text :notes
 
       t.timestamps

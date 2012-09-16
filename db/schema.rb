@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(:version => 20120915165646) do
   create_table "games", :force => true do |t|
     t.integer  "team1_id"
     t.integer  "team2_id"
-    t.integer  "winner_id"
-    t.integer  "winning_score"
-    t.integer  "losing_score"
+    t.integer  "team1_score"
+    t.integer  "team2_score"
+    t.integer  "innings",     :default => 8
     t.text     "notes"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "leagues", :force => true do |t|
@@ -58,11 +58,11 @@ ActiveRecord::Schema.define(:version => 20120915165646) do
   create_table "teams", :force => true do |t|
     t.integer  "division_id"
     t.string   "name"
-    t.integer  "wins"
-    t.integer  "losses"
+    t.integer  "wins",        :default => 0
+    t.integer  "losses",      :default => 0
     t.text     "notes"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end
