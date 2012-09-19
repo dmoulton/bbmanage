@@ -31,6 +31,8 @@ end
 
 gem 'faker'
 
+gem 'rails_admin'
+
 #gem 'awesome_animal'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
