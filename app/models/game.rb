@@ -1,9 +1,8 @@
 class Game < ActiveRecord::Base
   attr_accessible :team2_score, :notes, :team1_id, :team2_id, :team1_score, :innings, :team1, :team2
 
-  belongs_to :team1, :polymorphic => true
-  belongs_to :team2, :polymorphic => true
-
+  belongs_to :team1_games
+  belongs_to :team2_games
   after_validation :update_stats
 
   def update_stats
