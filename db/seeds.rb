@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-leagues = League.create([{name: 'Orem 10-11 year olds'},{name: 'Orem 12-13 year olds'},{name: 'Orem 14-15 year olds'}])
+leagues = League.create([{name: 'Peewee'},{name: 'Junior'},{name: 'Senior'}])
 positions = Position.create([ {name: 'coach'},
                               {name: 'pitcher'},
                               {name: 'catcher'},
@@ -65,7 +65,7 @@ end
 Team.all.each do |t|
   for x in 1..2
     Position.all.each_with_index do |p,i|
-      t.people.create({ name: Faker::Name.name,
+      t.people.create({ name: Faker::Name.first_name + Faker::Name.last_name,
                         number: (i*5) + Random.rand(99),
                         position: p,
                         active: true})
