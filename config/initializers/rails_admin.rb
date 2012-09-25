@@ -198,17 +198,16 @@ RailsAdmin.config do |config|
     field :people
   end
 
+  config.model Person do
+
+  end
+
   config.model Team do
     field :name
     field :division
-    #field :games
     field :wins
     field :losses
+    field :people
 
-    edit do
-      field :people do
-        orderable true
-      end
-    end
   end
 end
