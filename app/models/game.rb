@@ -34,6 +34,14 @@ class Game < ActiveRecord::Base
     Team.find(id)
   end
 
+  def winning_score
+    home_team_score > away_team_score ? home_team_score : away_team_score
+  end
+
+  def losing_score
+    home_team_score < away_team_score ? home_team_score : away_team_score
+  end
+
   def loser
     if home_team_score < away_team_score
       id = home_team_id
