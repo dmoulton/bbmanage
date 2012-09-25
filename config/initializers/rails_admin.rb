@@ -187,4 +187,28 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
+
+  config.model League do
+    field :name
+    field :divisions
+  end
+
+  config.model Position do
+    field :name
+    field :people
+  end
+
+  config.model Team do
+    field :name
+    field :division
+    #field :games
+    field :wins
+    field :losses
+
+    edit do
+      field :people do
+        orderable true
+      end
+    end
+  end
 end

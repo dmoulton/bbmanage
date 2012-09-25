@@ -3,4 +3,10 @@ class Division < ActiveRecord::Base
 
   belongs_to :league
   has_many :teams
+
+  rails_admin do
+    field :name
+    field :league
+    field :teams
+  end
 end
