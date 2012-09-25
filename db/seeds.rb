@@ -65,7 +65,7 @@ end
 Team.all.each do |t|
   for x in 1..2
     Position.all.each_with_index do |p,i|
-      t.people.create({ name: Faker::Name.first_name + Faker::Name.last_name,
+      t.people.create({ name: Faker::Name.first_name + " " + Faker::Name.last_name,
                         number: (i*5) + Random.rand(99),
                         position: p,
                         active: true})
