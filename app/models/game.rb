@@ -1,8 +1,8 @@
 class Game < ActiveRecord::Base
-  attr_accessible :team2_score, :notes, :team1_id, :team2_id, :team1_score, :innings, :team1, :team2
+  attr_accessible :away_team_score, :notes, :home_team_id, :away_team_id, :home_team_score, :innings, :home_team, :away_team
 
-  belongs_to :team1_games
-  belongs_to :team2_games
+  belongs_to :home_team, :class_name => "Team"
+  belongs_to :away_team, :class_name => "Team"
   after_validation :update_stats
 
   def update_stats
@@ -26,19 +26,19 @@ class Game < ActiveRecord::Base
   end
 
   def winner
-    if team1_score > team2_score
-      id = team1_id
+    if home_team_score > away_team_score
+      id = home_team_id
     else
-      id = team2_id
+      id = away_team_id
     end
     Team.find(id)
   end
 
   def loser
-    if team1_score < team2_score
-      id = team1_id
+    if home_team_score < away_team_score
+      id = home_team_id
     else
-      id = team2_id
+      id = away_team_id
     end
     Team.find(id)
   end
@@ -46,19 +46,19 @@ class Game < ActiveRecord::Base
   private
 
   def winner_was
-    if team1_score_was > team2_score_was
-      id = team1_id
+    if home_team_score_was > away_team_score_was
+      id = home_team_id
     else
-      id = team2_id
+      id = away_team_id
     end
     Team.find(id)
   end
 
   def loser_was
-    if team1_score_was < team2_score_was
-      id = team1_id
+    if home_team_score_was < away_team_score_was
+      id = home_team_id
     else
-      id = team2_id
+      id = away_team_id
     end
     Team.find(id)
   end

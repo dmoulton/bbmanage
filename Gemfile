@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 gem 'faker'
+gem 'awesome_print'
 
 #gem 'awesome_animal'
 # To use ActiveModel has_secure_password

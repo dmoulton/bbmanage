@@ -3,7 +3,6 @@ class Team < ActiveRecord::Base
 
   belongs_to :division
   has_many :people
-  has_many :team1_games, :class_name=>"Game", :foreign_key=>:team1_id
-  has_many :team2_games, :class_name=>"Game", :foreign_key=>:team2_id
-
+  has_many :home_team, :class_name=>"Game", :foreign_key=>:home_team_id
+  has_many :away_team, :class_name=>"Game", :foreign_key=>:away_team_id
 end
