@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-leagues = League.create([{name: 'Orem 10-11 year olds'},{name: 'Orem 12-13 year olds'},{name: 'Orem 14-15 year olds'}])
+leagues = League.create([{name: 'Peewee'},{name: 'Junior'},{name: 'Senior'}])
 positions = Position.create([ {name: 'coach'},
                               {name: 'pitcher'},
                               {name: 'catcher'},
@@ -23,11 +23,11 @@ leagues.each do |l|
   l.divisions.create(:name=>'South')
 end
 
-team_names = ["Aardvarks",
-              "Ants",
-              "Cave Men",
-              "Broncs", 
-              "Cougars", 
+team_names = ["Ponies",
+              "Rainbows",
+              "Leprechauns",
+              "Kittens",
+              "Puppies",
               "Utes", 
               "Miners", 
               "Bees",
@@ -53,7 +53,8 @@ team_names = ["Aardvarks",
               "Osprey", 
               "Ostrich", 
               "Otters", 
-              "Owls" ]
+              "Owls",
+              "Cave Men"]
 
 Division.all.each do |d|
   for i in 1..5
@@ -64,7 +65,7 @@ end
 Team.all.each do |t|
   for x in 1..2
     Position.all.each_with_index do |p,i|
-      t.people.create({ name: Faker::Name.name,
+      t.people.create({ name: Faker::Name.first_name + " " + Faker::Name.last_name,
                         number: (i*5) + Random.rand(99),
                         position: p,
                         active: true})
@@ -81,10 +82,10 @@ Division.all.each do |d|
         t2s = Random.rand(10)
       end while t1s == t2s
 
-      Game.create({team1_id: t1.id,
-                    team2_id: t2.id,
-                    team1_score: t1s,
-                    team2_score: t2s
+      Game.create({ home_team_id: t1.id,
+                    away_team_id: t2.id,
+                    home_team_score: t1s,
+                    away_team_score: t2s
         })
     end
   end

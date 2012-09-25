@@ -30,6 +30,7 @@ group :development, :test do
 end
 
 gem 'faker'
+gem 'awesome_print'
 
 gem 'rails_admin'
 
