@@ -20,16 +20,16 @@ ActiveAdmin.register Team do
   end
 
   scope :all, :default=>true
-  scope "10-11 year olds" do |teams|
-    l = League.find_by_name("Orem 10-11 year olds")
+  scope "Peewee" do |teams|
+    l = League.find_by_name("Peewee")
     teams.where(:division_id=>l.division_ids)
   end
-  scope "12-13 year olds" do |teams|
-    l = League.find_by_name("Orem 12-13 year olds")
+  scope "Junior" do |teams|
+    l = League.find_by_name("Junior")
     teams.where(:division_id=>l.division_ids)
   end
-  scope "14-15 year olds" do |teams|
-    l = League.find_by_name("Orem 14-15 year olds")
+  scope "Senior" do |teams|
+    l = League.find_by_name("Senior")
     teams.where(:division_id=>l.division_ids)
   end
 end
