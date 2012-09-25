@@ -189,25 +189,57 @@ RailsAdmin.config do |config|
   # end
 
   config.model League do
+    weight -10
     field :name
     field :divisions
+  end
+
+  config.model Division do
+    weight -8
+  end
+
+  config.model Team do
+    weight -6
+
+    list do
+      field :name
+      field :division
+      field :wins
+      field :losses
+    end
+
+    edit do
+      field :name
+      field :division
+      field :wins
+      field :losses
+      field :people do
+        inverse_of :teams
+        orderable true
+      end
+    end
+  end
+
+  config.model Game do
+    weight -5
+    field :home_team
+    field :home_team_score
+    field :away_team
+    field :away_team_score
+    field :innings
+  end
+
+  config.model Person do
+    order :name
+    list do
+      field :name
+      field :position
+      field :team
+    end
   end
 
   config.model Position do
     field :name
     field :people
-  end
-
-  config.model Person do
-
-  end
-
-  config.model Team do
-    field :name
-    field :division
-    field :wins
-    field :losses
-    field :people
-
   end
 end
